@@ -177,4 +177,4 @@ def view_course(course_name):
         return render_template("view_course.html", course_students=course.students)
     return redirect(url_for("index"))
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run()
