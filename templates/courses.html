@@ -1,0 +1,141 @@
+{% extends "menu.html" %}
+
+{% block body %}
+
+<div>
+
+    <script>
+      window.onload = function() {
+        var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+      }
+    </script>
+
+<button id="myBtn" class="tealBtn" style="margin-left: 2.5%;">add class</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form method=POST action="{{ url_for('courses') }}">
+      <label>enter a class name and section i.e. Math-152-005RL</label>
+      <input type="text" name="courseName" placeholder="enter course name i.e. Math-152-005RL">
+      <input type="submit" class="blueBtn">
+    </form>
+  </div>
+
+</div>
+<p style="padding-left: 2.5%; color: white;">{{message}}</p>
+<div style="display: flex; flex-wrap: wrap;">
+
+  {% if users.courses|length == 0 %}
+  <div style="padding-left: 5%; padding-top: 5%;">
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <i class="fas fa-book"></i>
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">Add your first course</p>
+          </div>
+        </div>
+    
+        <div class="content">
+          You don't have any classes right now
+          <br>
+          Click the add class button to add your first class!
+          <br>
+        </div>
+      </div>
+    </div>
+  
+  
+  </div> 
+   {% endif %}
+
+
+
+{% for course in users.courses %}
+
+
+
+
+<div>
+<div style="padding-left: 10%; padding-top: 5%;">
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <i class="fas fa-book"></i>
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4">{{ course.name }}</p>
+        </div>
+      </div>
+  
+      <div class="content">
+        Click to view your classmates and connect with them!
+        <br>
+        Members: {% for student in course.students %}
+         {% if loop.index == 1 %}
+         {{ loop.length }}
+         {% endif %}
+        {% endfor %}
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <footer class="card-footer">
+      <a href="#" class="card-footer-item">change icon</a>
+      <a href="{{url_for('view_course', course_name=course.name)}}" class="card-footer-item">view</a>
+      <a href="#" class="card-footer-item">leave</a>
+    </footer>
+  </div>
+
+
+
+</div>
+
+</div>
+
+
+
+{% endfor %}
+</div>
+
+
+</div>
+
+
+{% endblock %}

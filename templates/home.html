@@ -1,0 +1,15 @@
+{% extends "menu.html" %}
+
+{% block body %}
+<html>
+<body>
+<div>
+    <p>{{user.first_name}}</p>
+</div>
+<form method=POST action="{{ url_for('logout') }}">
+    <button type="submit" class="btn btn-danger">log out</button>
+</form>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "menu.html" %}
+
+{% block body %}
+
+<div>
+<section class="hero">
+    <div class="hero-body">
+    <div class="level-item">
+        <i style="color: white;" class="fas fa-chalkboard-teacher is-size-1"></i>
+    </div>
+    <div class="level-item">
+        <p style="color: white;" class="title">
+        View Class
+        </p>
+        </div>
+    
+        <div class="level-item">
+        <p style="color: white;" class="subtitle">
+            View and connect with your classmates here
+        </p>
+        </div>
+    </div>
+</section>    
+
+
+
+
+<br>
+
+{% for student in course_students %}
+<div class="level-item" style="margin-top: 25px">
+    <div class="card" style="width: 60%"">
+
+     <div class="card-content">
+     <div class="content">
+         <p style="font-weight: bold">{{ student.first_name }} {{ student.last_name }}</p>
+        {{ student.bio }}
+         <br/>
+     </div>
+     </div>
+     <footer class="contentDisplay card-footer">
+     <button style="background-color: #8a3ab9; color: white;" class="button card-footer-item"><i class="fab fa-instagram"></i>: {{ student.instagram }}</button>
+     <button class="button is-warning card-footer-item"><i style="color: white;" class="fab fa-snapchat-ghost"></i>: {{ student.snapchat }}</button>
+     <button class="button is-info card-footer-item"><i  class="fab fa-twitter"></i>: {{ student.twitter }}</button>
+     <button class="button is-link card-footer-item"><i class="fab fa-linkedin"></i>: {{ student.linkedIn }}</button>
+</footer>
+     </div>
+</div>
+
+{% endfor %}
+
+
+
+
+
+</div>
+
+
+
+
+{% endblock %}

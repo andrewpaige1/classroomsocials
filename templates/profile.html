@@ -1,0 +1,114 @@
+{% extends "menu.html" %}
+{% block body %}
+<div>
+
+
+    <script>
+        window.onload = function() {
+          var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+        }
+      </script>
+
+
+
+    <div style="padding-top: 2%;">
+        <div>
+
+        <div class="level-item">
+        <img src="{{url_for('static', filename='blankProfile.png')}}" class="image is-128x128" alt="Avatar" style="border-radius: 50%;">
+            <div class="content">
+              <h1 style="color: white;" class="is-size-1 ml-4">{{ user.first_name }} {{ user.last_name }}</h1>
+              <div class="mb-5">
+              <h2 style="color: white;" class="has-text-weight-light">{{ user.email }}</h2>
+              </div>
+            </div>
+        </div>
+        
+        <div class="level-item">
+
+          <div class="ml-4" style="padding-top: 2.5%;">
+            <form action="{{url_for('courses')}}" method="GET">
+            <button class="button is-info">
+              <p class="has-text-light">view classes</p>
+            </button>
+            </form>
+          </div>
+
+
+            <div class="ml-4" style="padding-top: 2.5%;">
+              <button class="button is-info" id="myBtn">
+                      <p class="has-text-light">edit profile</p>
+              </button>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <form method=POST action="{{ url_for('edit_profile', id=user.id) }}">
+                <div class="level-item">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" class="image is-128x128" alt="Avatar" style="border-radius: 50%;">
+                </div>
+                <div class="level-item">
+                    <label>click to change picture</label>
+                </div>
+                <h2 class="is-size-3">Tell people about yourself!</h2>
+                <label>enter a bio</label>
+                <input type="text" name="bio" placeholder="let us know what you like to do!" value="{{user.bio}}">
+                <h2 class="is-size-3">Share your handles to connect with your classmates</h2>
+                <label>Instagram</label>
+                <input type="text" name="instagram" placeholder="enter your instagram username" value="{{user.instagram}}">
+                <label>Snapchat</label>
+                <input type="text" name="snapchat" placeholder="enter your snapchat username" value="{{user.snapchat}}">
+                <label>Twitter</label>
+                <input type="text" name="twitter" placeholder="enter your twitter username" value="{{user.twitter}}">
+                <label>LinkedIn</label>
+                <input type="text" name="linkedIn" placeholder="enter your LinkedIn username" value="{{user.linkedIn}}">
+                <div style="text-align: center;">
+                    <input type="submit" class="tealBtn">
+                </div>
+              </form>
+              <div style="float: right;">
+              <form action="{{url_for('logout')}}" method="POST">
+                <button type="submit" class="button is-danger">logout</button>
+              </form>
+              </div>
+            </div>
+          
+          </div>
+        <div class="level-item">
+            <p style="color: white;" class="is-size-4"><i class="fab fa-instagram"></i>: {{ user.instagram }} &nbsp | &nbsp</p>
+            <p style="color: white;" class="is-size-4"><i class="fab fa-snapchat-ghost"></i>: {{ user.snapchat }} &nbsp | &nbsp</p>
+            <p style="color: white;" class="is-size-4"><i class="fab fa-twitter"></i>: {{ user.twitter }} &nbsp | &nbsp</p>
+            <p style="color: white;" class="is-size-4"><i class="fab fa-linkedin"></i>: {{ user.linkedIn }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

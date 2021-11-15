@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" type="text/css" />
+        <title>classroom socials</title>
+    </head>
+  <div class="container">
+  <div class="level">
+      <div class="column">
+        <div class="level-item">
+          <h1 class="is-size-1">classroom socials</h1>
+      </div>
+      <div class="level-item">
+          <h2 class="is-size-3">login</h2>
+      </div>
+
+        <div class="level-item">
+          <form method=POST action="{{ url_for('login') }}">
+
+            <div class="field">
+                <label>email</label>
+                <input type="text" class="input" name="email" placeholder="email">
+            </div>
+
+              <div class="field">
+                  <label>Password</label>
+                  <input type="password" class="input" name="pass" placeholder="Password">
+              </div>
+              
+              <button type="submit" class="btn-mktg mr-3">Log in </button>
+          </form>
+        </div>
+          <br>
+          <div class="level-item">
+              Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
+          </div>
+      </div>
+  </div>
+</div>

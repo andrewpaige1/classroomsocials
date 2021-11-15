@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>classroom socials</title>
+        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    </head>
+
+<body>
+
+<style>
+      body {
+        margin: 0;
+        font-family: 'Prompt', sans-serif;
+        color: white;
+        background: #002233;
+        overflow-x: hidden;
+      }
+      .custom-shape-divider-top-1636483331 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1636483331 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 288px;
+}
+
+.custom-shape-divider-top-1636483331 .shape-fill {
+    fill: #4A4CE2;
+}
+
+
+
+.firstWave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.firstWave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 290px;
+}
+
+.firstWave .shape-fill {
+    fill: #0066FF;
+}
+
+section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 400px;
+        padding-top: 100px;
+      }
+
+      .spacer {
+        aspect-ratio: 960/540;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      .spacer2 {
+        aspect-ratio: 960/300;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      .bottomWave {
+        background-image: url('../static/wave.svg');
+      }
+      .topWave {
+        background-image: url('../static/top-wave.svg');
+      }
+      .skinnyWave {
+        background-image: url('../static/skinny-wave.svg');
+      }
+      .skinnyBottom {
+        background-image: url('../static/skinny-bottom.svg');
+      }
+      .layers {
+        background-image: url('../static/layers.svg');
+      }
+      .thinWave {
+        background-image: url('../static/thin-wave.svg');
+      }
+</style>
+
+<section>
+<div class="firstWave">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+</div>
+</section>
+
+          <div style="text-align: center;">
+            <div style="margin-top: -500px;">
+                <img src="{{ url_for('static', filename='bigger.png') }}">
+            </div>
+            <div style="margin-top: -150px;">
+              <h1 class="is-size-1">classroom socials</h1>
+              <h2 class="is-size-4">connect with peers outside of your class or lecture</h2>
+              <h3 class="is-size-5">Simply signup, add your class, then you can view your peers on the following platforms</h3>
+            </div>
+          </div>
+
+          <div class="level-item">
+           <i class="fab fa-instagram fa-7x"></i>
+           &nbsp
+            <i style="color: white;" class="fab fa-snapchat-ghost fa-7x"></i>
+            &nbsp
+            <i  class="fab fa-twitter fa-7x"></i>
+            &nbsp
+            <i class="fab fa-linkedin fa-7x"></i>
+          </div>
+
+          <div class="level-item">
+          <div style="text-align: center;">
+            <a class="tealBtn" href="{{ url_for('register') }}">Sign up here</a>
+        </div>
+        <div style="text-align: center;">
+            <a class="blueBtn" href="{{ url_for('login') }}"> Login</a>
+        </div>
+        </div>
+<div class="spacer2 skinnyBottom"></div>
+<div class="spacer2 layers"></div>
+
+<div class="level-item" style="margin-top: -150px; padding-bottom: 5%;">
+    <h2 class="is-size-2">How does it work?</h2>
+</div>
+<div class="level-item">
+    <img style="width: 25%; height: 25%;" src="{{ url_for('static', filename='filter.svg') }}">
+</div>
+<div class="level-item">
+    <h2 class="is-size-2">1. Sign Up</h2>
+</div>
+<div class="level-item">
+    <h3 class="is-size-3">First step to meeting your classmates is to sign up</h3>
+</div>
+<div class="level-item">
+    <h3 class="is-size-3">*We are currently open to limited schools but are quickly adding more if requested</h3>
+</div>
+<div class="level-item">
+    <h3 class="is-size-3">If your school isn't listed, don't worry</h3>
+</div>
+<div class="level-item">
+  <h3 class="is-size-3">We'll email you to let you know when we've added your school</h3>
+</div>
+<div class="level-item">
+  <h2 class="is-size-2">2. Add your course schedule</h2>
+</div>
+<div class="level-item">
+  <h3 class="is-size-3">Enter your courses as you see them on your schedule</h3>
+</div>
+<div class="level-item">
+  <h3 class="is-size-3">No class codes required, once you hit submit you can see your classmates' profiles</h3>
+</div>
+<div class="level-item">
+  <h2 class="is-size-3">3. Edit your own profile</h2>
+</div>
+<div class="level-item">
+  <h3 class="is-size-3">So classmates can discover you!</h3>
+</div>
+<div class="spacer2 thinWave"></div>
+<div class="level-item" style="margin-top: -150px;">
+  <h2 class="is-size-2">Available to all Brookdale Students when you use your Brookdale email</h2>
+</div>
+<div class="level-item">
+  <img style="width: 25%; height: 25%;" src="{{ url_for('static', filename='team-connection.svg') }}">
+</div>
+<div class="level-item">
+  <h2 class="is-size-2">Start connecting</h2>
+</div>
+<div style="text-align: center; padding-bottom: 5%;">
+  <a class="tealBtn" href="{{ url_for('register') }}">Sign up here</a>
+</div>
+</body>
+</html>
