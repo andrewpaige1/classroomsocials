@@ -10,7 +10,6 @@ from os import environ
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL').replace("://", "ql://", 1)
-"sqlite:///sqlite3.db"
 #"sqlite:///database.db"
 #environ.get('DATABASE_URL').replace("://", "ql://", 1)
 app.secret_key = environ.get('SECRET_KEY')
@@ -177,4 +176,4 @@ def view_course(course_name):
         return render_template("view_course.html", course_students=course.students)
     return redirect(url_for("index"))
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run()
