@@ -9,6 +9,7 @@ bcrypt = "*"
 flask-sqlalchemy = "*"
 python-dotenv = "*"
 psycopg2 = "*"
+gunicorn = "*"
 
 [dev-packages]
 
