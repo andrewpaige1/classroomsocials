@@ -10,7 +10,7 @@ from os import environ
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL').replace("://", "ql://", 1)
-#"sqlite:///database.db"
+#"sqlite:///sqlite3.db"
 #environ.get('DATABASE_URL').replace("://", "ql://", 1)
 app.secret_key = environ.get('SECRET_KEY')
 db = SQLAlchemy(app)
