@@ -5,7 +5,7 @@ from datetime import datetime
 import bcrypt
 from sqlalchemy.orm import backref
 from os import environ
-
+from constants import catalog
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -137,8 +137,6 @@ def courses():
             for letter in course_name:
                 if letter == "-":
                     dash_count = dash_count + 1
-            if dash_count != 2:
-                return render_template("courses.html", users=user, message="Please enter a valid class name")
             course = Course.query.filter_by(name=course_name).first()
                    
             #user_courses = User.query.filter_by(email=session["email"]).first()
@@ -157,7 +155,13 @@ def courses():
                 db.session.commit()
             return render_template("courses.html", users=user)
         user = User.query.filter_by(email=session["email"]).first()
-        return render_template("courses.html", users=user)
+        temp_catalog = catalog.splitlines(True)
+        new_catalog = []
+        for course in temp_catalog:
+            if " \n" in course:
+                new_line_index = course.find(" \n")
+                new_catalog.append(course[:new_line_index:])
+        return render_template("courses.html", users=user, catalog=new_catalog)
     return redirect(url_for('index'))
 @app.route("/events")
 def events():

@@ -42,9 +42,14 @@ window.onclick = function(event) {
   <div class="modal-content">
     <span class="close">&times;</span>
     <form method=POST action="{{ url_for('courses') }}">
-      <label>enter a class name and section i.e. Math-152-005RL</label>
-      <input type="text" name="courseName" placeholder="enter course name i.e. Math-152-005RL">
-      <input type="submit" class="blueBtn">
+      <label>start typing to filter courses like comp126</label>
+      <input list="courseOptions" type="text" name="courseName" placeholder="comp126 - computer logic and design">
+      <datalist id="courseOptions">
+        {% for course_option in catalog %}
+        <option value="{{ course_option }}">
+        {% endfor %}
+      </datalist>
+      <input type="submit" class="whiteBtn">
     </form>
   </div>
 
